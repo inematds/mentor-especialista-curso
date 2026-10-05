@@ -1314,3 +1314,4 @@ html[data-reduced-motion="reduce"] *::after {
 .font-mono:not(pre):not(pre *) { overflow-wrap: anywhere; }
 h1, h2, h3, h4 { overflow-wrap: break-word; }
 h1, h2, h3, h4 { overflow-wrap: anywhere; min-width: 0; }
+button > div { min-width: 0; overflow-wrap: anywhere; }

@@ -295,7 +295,7 @@ python3 -c 'import json; d = json.load(open(".claude/settings.json")); print(sor
           do agente e quando chamá-lo. O resto do arquivo é a instrução que o subagente recebe.
         </p>
 <div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
-<p class="text-sm text-neutral-400 mb-2 font-mono">.claude/agents/nei-mentor.md (início)</p>
+<p class="text-sm text-neutral-400 mb-2 font-mono">.claude/agents/nei-mentor.md (início; no arquivo, a description ocupa uma linha só)</p>
 <pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto">---
 name: nei-mentor
 description: "Mentor que ensina e revisa no método de Nei Maldaner (INEMA) (ensinar a usar
@@ -319,6 +319,24 @@ não inventa opiniões dela. Copia o **método**: como explica, constrói, depur
 <tr><td class="p-3 font-mono text-xs">corpo</td><td class="p-3 text-neutral-300">Antes de responder, loop obrigatório, revisão, proibido</td><td class="p-3 text-neutral-400">Imitar a voz do especialista (persona, não método)</td></tr>
 </tbody>
 </table>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Frontmatter que funciona</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>description diz <em>quando</em> chamar: "Use quando o usuário quiser APRENDER algo construindo junto…"</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span><span class="font-mono text-xs">name</span> igual ao que a skill chama (<span class="font-mono text-xs">nei-mentor</span>)</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Corpo descreve o método: como explica, constrói, depura e verifica</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Frontmatter que atrapalha</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>description que só diz o que o agente "é" ("um mentor experiente")</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span><span class="font-mono text-xs">name</span> diferente do que a skill referencia: a chamada falha</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Corpo que imita a voz e os bordões do especialista</span></li>
+</ul>
+</div>
 </div>
 <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
 <h3 class="text-lg font-semibold text-teal-400 mb-3 flex items-center"><span class="mr-2">🧭</span> Por que o mentor é subagente e não a sessão principal</h3>
