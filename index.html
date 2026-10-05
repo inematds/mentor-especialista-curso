@@ -510,13 +510,13 @@
 <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
 <div class="px-5 py-3 border-b border-dark-600 flex items-center justify-between">
 <h3 class="font-bold">Placar do piloto</h3>
-<span class="px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-400 text-xs font-semibold">4/5 · nota 8</span>
+<span class="px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-400 text-xs font-semibold">5/5 · nota 8</span>
 </div>
 <ul class="divide-y divide-dark-600 text-sm">
 <li class="px-5 py-3 flex items-start gap-3"><span class="text-emerald-400">✓</span><span class="text-neutral-300">Fases 1 a 3 com exit 0 (a fase 1 depois de calibrar a meta e somar uma fonte)</span></li>
 <li class="px-5 py-3 flex items-start gap-3"><span class="text-emerald-400">✓</span><span class="text-neutral-300">Portão bloqueou certo, sem bloqueio indevido</span></li>
 <li class="px-5 py-3 flex items-start gap-3"><span class="text-emerald-400">✓</span><span class="text-neutral-300">Teste 1 passou e ensinou algo novo: teto de bloqueio por sessão num hook Stop</span></li>
-<li class="px-5 py-3 flex items-start gap-3"><span class="text-amber-400">⚠</span><span class="text-neutral-300">Teste 2 reproduziu, corrigiu e provou lado a lado, mas não escreveu a previsão antes de rodar</span></li>
+<li class="px-5 py-3 flex items-start gap-3"><span class="text-emerald-400">✓</span><span class="text-neutral-300">Teste 2 passou na 4ª rodada (kit 1.3): o portão de previsão negou a execução, o mentor previu e só então rodou. Até o 1.3, era 4/5: reproduzia e provava, mas não escrevia a previsão antes</span></li>
 <li class="px-5 py-3 flex items-start gap-3"><span class="text-emerald-400">✓</span><span class="text-neutral-300">Teste 3 atualizou a wiki sozinho: 2 métodos novos e as regras R9 e R10</span></li>
 <li class="px-5 py-3 flex items-start gap-3"><span class="text-primary">★</span><span class="text-neutral-300">Nota 8 em "reconheço a pessoa nas regras"</span></li>
 </ul>
@@ -524,7 +524,7 @@
 <div class="bg-rose-500/10 rounded-xl border border-rose-500/30 p-5">
 <h3 class="font-bold text-rose-400 mb-3">A lição central</h3>
 <p class="text-sm text-neutral-300 mb-3">No teste 2, mesmo com a instrução explícita "escreva a previsão antes de rodar", o mentor previu só no raciocínio e escreveu "a previsão bateu" depois. A sessão disse "o validador passa", mas tinha rodado o validador sem o log.</p>
-<p class="text-sm text-neutral-300 mb-3"><strong class="text-rose-400">Instrução não basta: precisa de mecanismo</strong> (um portão de previsão) e de <strong class="text-rose-400">verificação de fora</strong> (o validador lendo o log da sessão).</p>
+<p class="text-sm text-neutral-300 mb-3"><strong class="text-rose-400">Instrução não basta: precisa de mecanismo</strong> (o portão de previsão, que o kit 1.3 trouxe) e de <strong class="text-rose-400">verificação de fora</strong> (o validador lendo o log da sessão). Na rodada 4, o portão negou a execução, o mentor escreveu a previsão e o validador com o log aprovou: 5/5.</p>
 <p class="text-xs text-neutral-500">Cada falha do piloto virou correção no kit, e você vê cada uma delas, com o antes e o depois, nos módulos.</p>
 </div>
 </div>

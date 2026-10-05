@@ -92,13 +92,13 @@
 <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-4">MÓDULO 6.1 · PROVA</span>
 <h1 class="text-3xl sm:text-4xl font-bold mb-4">🧪 O piloto real e os testes de aceitação</h1>
 <p class="text-lg text-neutral-400 max-w-3xl">
-        O mentor do Nei passou por três testes congelados. Dois passaram, um passou pela metade — e foi a metade que falhou
-        que ensinou a lição mais importante do curso: <strong class="text-rose-400">instrução não basta; é preciso mecanismo e verificação de fora</strong>.
+        O mentor do Nei passou por três testes congelados. Dois passaram de primeira; o teste 2 falhou em três rodadas e só passou na quarta —
+        e foi esse caminho que ensinou a lição mais importante do curso: <strong class="text-rose-400">instrução não basta; é preciso mecanismo e verificação de fora</strong>.
       </p>
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 max-w-2xl">
-<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">4/5</div><div class="text-xs text-neutral-400">Placar</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">5/5</div><div class="text-xs text-neutral-400">Placar final (kit 1.3)</div></div>
 <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">8</div><div class="text-xs text-neutral-400">Nota "reconheço"</div></div>
-<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">3</div><div class="text-xs text-neutral-400">Rodadas do teste 2</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">4</div><div class="text-xs text-neutral-400">Rodadas do teste 2</div></div>
 <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">~60 min</div><div class="text-xs text-neutral-400">Duração</div></div>
 </div>
 <div class="mt-6 max-w-2xl">
@@ -336,10 +336,10 @@ PYTHONIOENCODING=cp1252 python3 -c 'print("Onde baixo o arquivo de exemplo? 🤔
 <section class="mb-16" data-inema-topic="modulo-6-1#topico-4" id="topico-4">
 <div class="flex items-center space-x-4 mb-6">
 <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">4</span>
-<h2 class="text-2xl font-bold">🔁 As 3 rodadas do teste 2</h2>
+<h2 class="text-2xl font-bold">🔁 As 4 rodadas do teste 2</h2>
 </div>
 <p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m6-1-t4-p1">
-          Pelo roteiro, 4/5 manda corrigir o kit e repetir só o que falhou. O kit 1.2 saiu com a correção: revisão em 5 seções
+          Depois da rodada 1, o placar era 4/5 (e ficou 4/5 até o kit 1.3). Pelo roteiro, 4/5 manda corrigir o kit e repetir só o que falhou. O kit 1.2 saiu com a correção: revisão em 5 seções
           (Previsão → Reprodução → Correção → Lado a lado → Relatório), perfil <span class="font-mono text-sm">--perfil revisao</span> no validador e, com
           <span class="font-mono text-sm">--transcript</span>, a checagem de que a previsão veio antes da primeira execução. Então o teste 2 rodou de novo. Duas vezes.
         </p>
@@ -387,7 +387,7 @@ PYTHONIOENCODING=cp1252 python3 -c 'print("Onde baixo o arquivo de exemplo? 🤔
 <p class="text-sm text-neutral-400 mt-3">
 <strong class="text-rose-400">Como ler:</strong> em rosa, o que o mentor fez; em ciano, o que o kit mudou entre as rodadas. Repare que a
             correção do 1.2 (ciano) ficou em cima e as rodadas seguintes continuaram embaixo, no mesmo lugar. Mudar o texto não mudou o comportamento.
-            O cartão brilhante à direita é a decisão humana de parar de insistir.
+            O cartão brilhante à direita é a decisão humana de parar de insistir. O desfecho (rodada 4, já com o mecanismo) está logo abaixo da tabela.
           </p>
 </div>
 <div class="overflow-x-auto mb-6">
@@ -397,6 +397,7 @@ PYTHONIOENCODING=cp1252 python3 -c 'print("Onde baixo o arquivo de exemplo? 🤔
 <tr><td class="p-3 font-semibold">1 (kit 1.1)</td><td class="p-3">—</td><td class="p-3">Reproduziu, achou o 🤔 no dado, corrigiu, provou com md5. Previsão: não escrita antes.</td><td class="p-3">O passo não era verificado.</td></tr>
 <tr><td class="p-3 font-semibold">2 (kit 1.2)</td><td class="p-3">5 seções, perfil revisão, checagem de ordem no transcript.</td><td class="p-3">"Vou ler… sem executar nada" → executa em cp1252 → "A previsão se confirmou".</td><td class="p-3 text-red-400">Reprovado.</td></tr>
 <tr><td class="p-3 font-semibold">3 (kit 1.2)</td><td class="p-3">Pedido explícito: "escreva uma linha <span class="font-mono text-xs">Previsão:</span> antes do primeiro comando que executa código".</td><td class="p-3">Prevê no raciocínio, executa, escreve "a previsão bateu" depois.</td><td class="p-3 text-red-400">Reprovado.</td></tr>
+<tr><td class="p-3 font-semibold">4 (kit 1.3)</td><td class="p-3">Portão de previsão: hook PreToolUse em Bash nega o comando que executa código se ainda não há "Previsão: …" no turno.</td><td class="p-3">Tentou executar antes de prever → negado. Escreveu a previsão, depois rodou.</td><td class="p-3 text-emerald-400">Aprovado (9 execuções, OK).</td></tr>
 </tbody>
 </table>
 </div>
@@ -408,6 +409,16 @@ PYTHONIOENCODING=cp1252 python3 -c 'print("Onde baixo o arquivo de exemplo? 🤔
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
 <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Saber parar também é método</h3>
 <p class="text-neutral-300">Depois de duas tentativas sem avanço, o piloto parou em vez de tentar uma terceira formulação da mesma instrução. É o critério de aborto (R2) aplicado ao próprio operador: se reescrever o pedido não mudou nada duas vezes, o problema não está na redação.</p>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-emerald-400 mb-3 flex items-center"><span class="mr-2">✅</span> Rodada 4 (kit 1.3) — o desfecho</h3>
+<ol class="space-y-2 text-sm text-neutral-300 mb-4">
+<li><strong class="text-emerald-400">17:55 · tentou rodar primeiro.</strong> O mentor fez o de sempre: quis executar o script antes de prever. Desta vez o <strong>portão de previsão negou o comando</strong> ("antes de executar código, escreva 'Previsão: …'").</li>
+<li><strong class="text-emerald-400">Escreveu a previsão.</strong> Na conversa, antes de rodar: <span class="font-mono text-xs">Previsão: UnicodeEncodeError com '\U0001f50e' na linha 28, exit 1 e nenhum relatorio.txt criado</span>.</li>
+<li><strong class="text-emerald-400">Só então rodou</strong>, reproduziu, corrigiu e provou lado a lado, como nas outras rodadas.</li>
+<li><strong class="text-emerald-400">Verificação de fora:</strong> <span class="font-mono text-xs">validar_resposta --perfil revisao --transcript</span> → 9 execuções, OK. O validador do 1.3 ignora o comando negado pelo hook (a tentativa bloqueada não rodou).</li>
+</ol>
+<p class="text-neutral-300 text-sm"><strong class="text-emerald-400">Placar final: 5/5, nota 8.</strong> O caminho do teste 2 é a lição inteira em três passos: <strong>instrução</strong> (rodadas 2 e 3 falharam) → <strong>mecanismo</strong> (portão de previsão) → <strong>verificação de fora</strong> (o validador lendo o log provou que resolveu).</p>
 </div>
 <div class="flex justify-start items-center gap-3 mt-6">
 <button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-rose-500/20 border border-rose-500/30 text-rose-400 hover:bg-rose-500/30 transition-colors" data-inema-read-toggle="" type="button">
@@ -429,7 +440,7 @@ PYTHONIOENCODING=cp1252 python3 -c 'print("Onde baixo o arquivo de exemplo? 🤔
           negrito que seja o pedido — não garante o comportamento. O que garante são duas camadas que <em>não dependem da boa vontade da sessão</em>.
         </p>
 <div class="rounded-2xl border border-rose-500/30 bg-dark-900/40 p-3 sm:p-4 mb-4 overflow-hidden">
-<svg aria-label="Três camadas de garantia: instrução no texto, que a sessão pode ignorar; mecanismo, um hook que bloqueia; verificação de fora, um validador que lê o log. O portão de execução é exemplo de mecanismo que já funciona; o portão de previsão é o mecanismo previsto para o kit 1.3" class="w-full h-auto" role="img" viewBox="0 0 1000 300">
+<svg aria-label="Três camadas de garantia: instrução no texto, que a sessão pode ignorar; mecanismo, um hook que bloqueia; verificação de fora, um validador que lê o log. O portão de execução e o portão de previsão, este do kit 1.3, são os dois mecanismos que já funcionam" class="w-full h-auto" role="img" viewBox="0 0 1000 300">
 <defs>
 <linearGradient id="m61c-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#fb7185"></stop><stop offset="1" stop-color="#f43f5e"></stop></linearGradient>
 <filter height="180%" id="m61c-glow" width="180%" x="-40%" y="-40%"><feGaussianBlur result="b" stdDeviation="2.2"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
@@ -452,8 +463,8 @@ PYTHONIOENCODING=cp1252 python3 -c 'print("Onde baixo o arquivo de exemplo? 🤔
 <rect fill="#0e1b26" height="70" rx="12" stroke="#38bdf8" stroke-width="2" width="330" x="640" y="114"></rect>
 <text fill="#38bdf8" font-size="13" font-weight="700" x="658" y="140">já funciona: portão de execução</text>
 <text fill="#bfe6ff" font-size="12" x="658" y="164">código escrito e não rodado → Stop bloqueia</text>
-<rect fill="#0e1b26" height="58" rx="12" stroke="#38bdf8" stroke-dasharray="6 5" stroke-width="2" width="330" x="640" y="24"></rect>
-<text fill="#38bdf8" font-size="13" font-weight="700" x="658" y="48">previsto (kit 1.3): portão de previsão</text>
+<rect fill="#0e1b26" height="58" rx="12" stroke="#38bdf8" stroke-width="2" width="330" x="640" y="24"></rect>
+<text fill="#38bdf8" font-size="13" font-weight="700" x="658" y="48">kit 1.3: portão de previsão</text>
 <text fill="#bfe6ff" font-size="12" x="658" y="68">PreToolUse em Bash sem "Previsão:" → bloqueia</text>
 <rect fill="#0e1b26" height="70" rx="12" stroke="#38bdf8" stroke-width="2" width="330" x="640" y="204"></rect>
 <text fill="#38bdf8" font-size="13" font-weight="700" x="658" y="230">já funciona: validar_resposta</text>
@@ -463,12 +474,49 @@ PYTHONIOENCODING=cp1252 python3 -c 'print("Onde baixo o arquivo de exemplo? 🤔
 <p class="text-sm text-neutral-400 mt-3">
 <strong class="text-rose-400">Como ler:</strong> de cima para baixo, cada camada é mais difícil de contornar. A instrução tem borda
             tracejada porque falhou no piloto. À direita, em ciano, os exemplos reais de cada camada: o portão de execução (trilha 5) é um mecanismo que já bloqueou certo no piloto;
-            o portão de previsão está tracejado porque ainda é plano, não código pronto.
+            o portão de previsão (kit 1.3) é o mecanismo que resolveu o teste 2 na rodada 4. Ele fica na faixa da instrução porque transforma aquele pedido em regra que o ambiente cumpre.
           </p>
 </div>
 <div class="bg-sky-900/20 rounded-xl border border-sky-500/30 p-5 mb-6">
 <p class="text-sm font-semibold text-sky-400 mb-2">Novo aqui? PreToolUse</p>
-<p class="text-sm text-neutral-300"><strong>PreToolUse</strong> é o evento de hook que roda <em>antes</em> de uma ferramenta ser usada — por exemplo, antes de cada comando Bash. Um hook nesse ponto pode recusar o comando. A ideia do portão de previsão é essa: se o comando executa código e ainda não há uma linha <span class="font-mono text-xs">Previsão:</span> escrita na sessão, o comando não roda.</p>
+<p class="text-sm text-neutral-300"><strong>PreToolUse</strong> é o evento de hook que roda <em>antes</em> de uma ferramenta ser usada — por exemplo, antes de cada comando Bash. Um hook nesse ponto pode recusar o comando. É assim que o portão de previsão do kit 1.3 funciona: se o comando executa código e o assistente ainda não escreveu <span class="font-mono text-xs">Previsão: …</span> no turno, o comando não roda.</p>
+</div>
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🔍</span> Veja como o kit 1.3 faz — o portão de previsão</h3>
+<p class="text-neutral-300 text-sm mb-3">O registro fica em <span class="font-mono text-xs">template/.claude/settings.json</span>: o mesmo script do portão de execução, agora também no evento <span class="font-mono text-xs">PreToolUse</span>, só para Bash.</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">"PreToolUse": [
+  {
+    "matcher": "Bash",
+    "hooks": [
+      {
+        "type": "command",
+        "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/portao-execucao.py\"",
+        "timeout": 10
+      }
+    ]
+  }
+]</pre>
+<p class="text-neutral-300 text-sm mb-3">E o trecho que decide, em <span class="font-mono text-xs">template/.claude/hooks/portao-execucao.py</span>:</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">if nome_evento == "PreToolUse" and ferramenta == "Bash":
+    if not cfg.get("previsao", True) or not executa_codigo(entrada.get("command", "")):
+        return 0
+    tr = transcricao_de(evento)
+    if tr is None or previu_no_turno(tr) is not False:
+        return 0
+    print(json.dumps({"hookSpecificOutput": {
+        "hookEventName": "PreToolUse",
+        "permissionDecision": "deny",
+        "permissionDecisionReason": ("Portão de previsão: antes de executar código, escreva na conversa uma linha "
+                                     "'Previsão: …' com o que você espera ver (valor, saída ou erro). Depois rode "
+                                     "e compare. Ler/listar arquivos não precisa de previsão."),
+    }}))
+    return 0</pre>
+<ul class="space-y-1 text-sm text-neutral-300 mb-3">
+<li>• <span class="font-mono text-xs">executa_codigo</span>: só barra o que executa código (python, node, bash, pytest…). Ler/listar (<span class="font-mono text-xs">cat</span>, <span class="font-mono text-xs">ls</span>, <span class="font-mono text-xs">grep</span>), os scripts do kit (<span class="font-mono text-xs">tools/stats.py</span>, <span class="font-mono text-xs">tools/validar_*.py</span>, <span class="font-mono text-xs">tools/coletar_*.py</span>) e <span class="font-mono text-xs">--version</span> passam.</li>
+<li>• <span class="font-mono text-xs">previu_no_turno</span>: lê a transcrição desde a última mensagem humana e procura "previs…" nos textos do assistente. Num subagente, lê a transcrição dele: <span class="font-mono text-xs">&lt;sessão&gt;/subagents/agent-&lt;id&gt;.jsonl</span>.</li>
+<li>• Sem transcrição legível, deixa passar: o portão nunca trava a sessão por falta de dado.</li>
+</ul>
+<p class="text-neutral-300 text-sm"><strong class="text-rose-400">Para desligar</strong> (por exemplo, num mentor que não revisa código): em <span class="font-mono text-xs">mentor.config.json</span>, <span class="font-mono text-xs">"portao": {"previsao": false}</span>. Para ganhar o portão num mentor que já existe: <span class="font-mono text-xs">~/caminho/do/kit/mentor-especialista/novo-mentor.py --atualizar ~/mentores/mentor-&lt;slug&gt;</span> (módulo 6.2).</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
 <div class="bg-dark-800 border border-dark-600 rounded-xl p-5"><p class="text-rose-400 font-semibold mb-2">Instrução</p><p class="text-sm text-neutral-300">Necessária: diz o que se espera. Insuficiente: o modelo pode cumprir "no raciocínio" e escrever depois, como no piloto.</p></div>
@@ -489,7 +537,7 @@ python3 tools/validar_resposta.py "$R" --perfil revisao; echo "exit=$?"
 # 2) relato + log (a verificação de fora)
 python3 tools/validar_resposta.py "$R" --perfil revisao \
   --transcript logs/teste2.jsonl; echo "exit=$?"</pre>
-<p class="text-neutral-300 text-sm"><strong class="text-rose-400">Como verificar:</strong> se as duas saírem com <span class="font-mono text-xs">exit=0</span>, seu mentor previu antes de rodar. Se a 1ª passar e a 2ª reprovar com "a primeira execução veio ANTES de qualquer previsão escrita — preveja, depois rode", você reproduziu o achado do piloto. Anote no seu diário: é a mesma limitação conhecida do kit 1.2.</p>
+<p class="text-neutral-300 text-sm"><strong class="text-rose-400">Como verificar:</strong> se as duas saírem com <span class="font-mono text-xs">exit=0</span>, seu mentor previu antes de rodar. Se a 1ª passar e a 2ª reprovar com "a primeira execução veio ANTES de qualquer previsão escrita — preveja, depois rode", você reproduziu o achado do piloto. Anote no seu diário: era a limitação conhecida do kit 1.2. No kit 1.3, com o portão de previsão ligado, o normal é ver no log um comando negado pelo hook, a linha <span class="font-mono text-xs">Previsão:</span> e só então a execução — e as duas saindo com <span class="font-mono text-xs">exit=0</span> (o validador ignora a tentativa negada).</p>
 </div>
 <div class="flex justify-start items-center gap-3 mt-6">
 <button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-rose-500/20 border border-rose-500/30 text-rose-400 hover:bg-rose-500/30 transition-colors" data-inema-read-toggle="" type="button">
@@ -518,9 +566,10 @@ python3 tools/validar_resposta.py "$R" --perfil revisao \
 <tr><td class="p-3">Fases 1–3 com exit 0</td><td class="p-3">✅ (fase 1 depois de calibrar a meta de guias e acrescentar uma fonte)</td></tr>
 <tr><td class="p-3">Portão: bloqueou certo, sem bloqueio indevido</td><td class="p-3">✅</td></tr>
 <tr><td class="p-3">Teste 1 passou e o Nei aprendeu algo</td><td class="p-3">✅ teto de bloqueio por sessão em hook Stop</td></tr>
-<tr><td class="p-3">Teste 2 previu, reproduziu e provou</td><td class="p-3">⚠️ reproduziu e provou; previsão não escrita antes de rodar</td></tr>
+<tr><td class="p-3">Teste 2 previu, reproduziu e provou</td><td class="p-3">✅ na rodada 4 (kit 1.3, portão de previsão); nas rodadas 1–3 reproduziu e provou, mas sem previsão escrita antes de rodar</td></tr>
 <tr><td class="p-3">Teste 3 atualizou a wiki sozinho</td><td class="p-3">✅</td></tr>
 <tr><td class="p-3">Nota "reconheço a pessoa nas regras" (0–10)</td><td class="p-3">8</td></tr>
+<tr><td class="p-3 font-semibold">Placar</td><td class="p-3 font-semibold text-emerald-400">5/5 (era 4/5 até o kit 1.3)</td></tr>
 <tr><td class="p-3">Tempo total (humano / máquina)</td><td class="p-3">~1h20 operando / ~20 min de sessões + 7,7 min de transcrição</td></tr>
 </tbody>
 </table>
@@ -542,7 +591,14 @@ python3 tools/validar_resposta.py "$R" --perfil revisao \
 <li>• <strong>média</strong> — revisão sem previsão verificada → perfil revisão + checagem pelo transcript.</li>
 <li>• <strong>baixa</strong> — metas, aviso "Stop hook error occurred", idioma, extensão do revisado, temporários no projeto.</li>
 </ul>
-<p class="text-neutral-400 text-sm mt-3">E uma limitação declarada, não escondida: a previsão antes de rodar ainda depende de mecanismo, previsto para o 1.3.</p>
+<p class="text-neutral-400 text-sm mt-3">O 1.2 saiu com uma limitação declarada, não escondida: a previsão antes de rodar dependia de mecanismo. O <strong class="text-neutral-200">kit 1.3</strong> fechou isso e o resto do piloto:</p>
+<ul class="space-y-2 text-sm text-neutral-300 mt-2">
+<li>• <strong>portão de previsão</strong> (PreToolUse em Bash) → resolveu o teste 2 na rodada 4; desligável em <span class="font-mono text-xs">"portao": {"previsao": false}</span>.</li>
+<li>• <span class="font-mono text-xs">validar_resposta</span> ignora comandos negados por hook (a tentativa bloqueada não rodou).</li>
+<li>• <span class="font-mono text-xs">validar_links</span> exige ida e volta fonte ↔ conceito → achou as 3 ligações de mão única do mentor do Nei, que foram fechadas.</li>
+<li>• <span class="font-mono text-xs">docs/ADAPTAR.md</span>: aviso de caminho relativo para montar um conselho de mentores.</li>
+<li>• 81 testes no kit.</li>
+</ul>
 </div>
 <div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
 <h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Faça agora — o seu placar</h3>
@@ -580,9 +636,9 @@ python3 tools/validar_resposta.py "$R" --perfil revisao \
 <div class="space-y-4 mb-8">
 <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Três testes congelados</strong><span class="text-neutral-400"> - ensinar, revisar e ingerir, cada um caçando um mau hábito, com critério escrito antes.</span></div></div>
 <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Teste 1 passou</strong><span class="text-neutral-400"> - 14 execuções, versão quebrada real (loop infinito), teto de 3 e prova numa sessão real.</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Teste 2 parcial</strong><span class="text-neutral-400"> - reproduziu, corrigiu e provou nas 3 rodadas; nunca escreveu a previsão antes de rodar.</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">A lição</strong><span class="text-neutral-400"> - instrução não basta: mecanismo que impede e verificação de fora que lê o log.</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Placar honesto</strong><span class="text-neutral-400"> - 4/5, nota 8, 8 correções no kit 1.2 e uma limitação declarada.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Teste 2 passou na rodada 4</strong><span class="text-neutral-400"> - nas rodadas 1–3 reproduziu e provou, mas nunca escreveu a previsão antes de rodar; no kit 1.3 o portão de previsão negou a execução, ele previu e o validador com o log aprovou.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">A lição</strong><span class="text-neutral-400"> - instrução não basta (rodadas 2 e 3 falharam) → mecanismo que impede (portão de previsão) → verificação de fora que lê o log (o validador provou).</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Placar honesto</strong><span class="text-neutral-400"> - 5/5, nota 8 (4/5 até o kit 1.3): 8 correções no kit 1.2, a limitação declarada e fechada no 1.3, 81 testes.</span></div></div>
 </div>
 <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
 <h3 class="font-semibold text-rose-400 mb-2">Próximo Módulo:</h3>

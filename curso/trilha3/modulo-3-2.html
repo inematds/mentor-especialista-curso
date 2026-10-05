@@ -257,7 +257,7 @@
 </div>
 <div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
 <h3 class="text-lg font-semibold mb-3 flex items-center"><span class="mr-2">🧪</span> Copy-run — ache as ligações de mão única entre fontes e conceitos</h3>
-<p class="text-neutral-300 text-sm mb-2"><strong class="text-purple-400">Objetivo:</strong> o <code>validar_links.py</code> não checa os dois sentidos. Este script, só com a biblioteca padrão do Python, lista os pares fonte↔conceito em que falta o link de volta. Rode na pasta do mentor:</p>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-purple-400">Objetivo:</strong> até o kit 1.2, o <code>validar_links.py</code> não checava os dois sentidos. Este script, só com a biblioteca padrão do Python, lista os pares fonte↔conceito em que falta o link de volta. Rode na pasta do mentor:</p>
 <pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">cd ~/projetos/mentor-&lt;slug&gt;
 python3 - &lt;&lt;'EOF'
 import re
@@ -273,12 +273,18 @@ for a in sorted(sai):
             print(f"sem volta: {a} -&gt; {b}"); n += 1
 print(f"{n} ligações fonte&lt;-&gt;conceito de mão única")
 EOF</pre>
-<p class="text-neutral-300 text-sm mb-2"><strong class="text-purple-400">Saída real no piloto</strong> (com <code>validar_links.py</code> em exit 0):</p>
+<p class="text-neutral-300 text-sm mb-2"><strong class="text-purple-400">Saída real no piloto</strong> (com o <code>validar_links.py</code> do kit 1.2 em exit 0):</p>
 <pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-4">sem volta: guia-agente-claude-codex-migrar-do-claude-pro-codex-ou-ac831 -&gt; guia-de-projeto-landing
 sem volta: subagentes -&gt; video-live-100-videosdia-com-ia-agentes-metodos-e-escala-rea
 sem volta: subagentes -&gt; video-transcript
 3 ligações fonte&lt;-&gt;conceito de mão única</pre>
 <p class="text-neutral-300 text-sm"><strong class="text-purple-400">Como verificar:</strong> a última linha dá o total. Zero é o ideal; poucos casos se corrigem pedindo ao agente "acrescente o link de volta nestes pares" e rodando o script de novo até dar <code>0</code>. Depois, <code>validar_links.py</code> tem que continuar em exit 0.</p>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-emerald-400 mb-3 flex items-center"><span class="mr-2">✅</span> No kit 1.3, o validador reprova</h3>
+<p class="text-neutral-300 text-sm mb-3">O achado virou regra: desde o kit 1.3, o <code>validar_links.py</code> exige ida e volta entre fonte e conceito (tema, princípio, método). Cada ligação de mão única vira erro e o exit deixa de ser 0, com mensagens como:</p>
+<pre class="font-mono text-sm bg-dark-900/60 rounded-lg p-4 border border-dark-600 text-neutral-300 overflow-x-auto mb-3">mão única: subagentes → fontes/video-transcript, mas a fonte não liga de volta</pre>
+<p class="text-neutral-300 text-sm">Foi ele que apontou as 3 ligações do mentor do Nei, e as 3 foram fechadas. O script acima continua útil se o seu mentor foi gerado antes do 1.3 e você ainda não rodou <code>novo-mentor.py --atualizar</code> (módulo 6.2).</p>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
 <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
@@ -626,7 +632,7 @@ exit=1</pre>
 <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumo do Módulo</h2>
 <div class="space-y-4 mb-8">
 <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Quatro perguntas, quatro pastas</strong><span class="text-neutral-400"> - o que a fonte diz, o que ele sabe, o que ele defende, como ele faz.</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Links nos dois sentidos</strong><span class="text-neutral-400"> - o validador não checa; o script acha os de mão única (3 no piloto).</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Links nos dois sentidos</strong><span class="text-neutral-400"> - o script acha os de mão única (3 no piloto, todos fechados); desde o kit 1.3, o validar_links reprova.</span></div></div>
 <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">hot, index, log</strong><span class="text-neutral-400"> - porta de entrada, mapa e histórico que só cresce.</span></div></div>
 <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">O hot é contagem</strong><span class="text-neutral-400"> - 17/16/14/10 na fase 2, 18/17/14/11 depois da ingestão; reconte com grep.</span></div></div>
 <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Julgamento humano</strong><span class="text-neutral-400"> - 3 páginas mais dele, 3 mais genéricas, trechos conferidos no raw; nota 8 no piloto.</span></div></div>
